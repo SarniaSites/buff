@@ -9,8 +9,8 @@ index.html              the whole site, sections split by big comment banners
 thanks.html             shown after the booking form is sent
 404.html                not-found page (uses /buff/ absolute paths – see Going live)
 assets/css/styles.css   compiled Tailwind – don't edit by hand, run npm run build
-assets/js/main.js       menu, header, reveals, treatments explorer, colour picker, lightbox, form checks
-assets/fonts/           self-hosted Cormorant Garamond + Jost (woff2) with OFL licences
+assets/js/main.js       menu, header, reveals/wipes/line-draws, treatments explorer, colour picker (hand), lightbox, form checks
+assets/fonts/           self-hosted Bodoni Moda + Jost (woff2) with OFL licences
 images/brand/           buff-logo.svg (redrawn from the Facebook logo) + buff-mark.svg (favicon mark)
 images/work/            nail photos, each as name.webp (large) + name-sm.webp (small)
 images/                 favicons, og-image.jpg (share card), site.webmanifest
@@ -32,7 +32,7 @@ _shots/                 screenshots for the team (not published)
 | ink-900 | `#231d1b` | Body text, buttons, footer |
 | kraft-100 | `#f6efe6` | Colours section – picks up the kraft paper in the photos |
 
-Fonts: **Cormorant Garamond** (headings) and **Jost** (body – a geometric sans close to the logo lettering).
+Fonts: **Bodoni Moda** (headings) and **Jost** (body – a geometric sans close to the logo lettering).
 Logo: the Facebook logo is a 2048px raster with a gold gradient; it has been **redrawn as a clean SVG** (same lettering, layout and frame, flat gold).
 
 ## Editing
@@ -41,7 +41,8 @@ Logo: the Facebook logo is a 2048px raster with a gold gradient; it has been **r
 - **Colours** – change `tailwind.config.js`, then `npm install` (first time) and `npm run build`.
 - **Add a work photo** – export `name.webp` (~1400px) and `name-sm.webp` (~760px) into `images/work/`, then copy one `<figure>` in the *RECENT WORK* section and update `src`, `alt`, `data-full` and `data-caption`.
 - **Treatments explorer** – each treatment is a `role="tab"` button plus a matching `role="tabpanel"` block in the *TREATMENTS* section. To add one, copy both and give them new matching ids, and add the option to the form's Treatment `<select>`.
-- **Colour picker** – each shade is a `.swatch` button in the *COLOURS* section with `data-colour` (hex) and `data-name`.
+- **Colour picker** – each shade is a `.swatch` button in the *COLOURS* section with `data-colour` (hex) and `data-name`; the drawn hand repaints its nails.
+- **Animations** – the hero brush/wave loop is SVG `<animate>` inside the hero (8s cycle); scroll reveals use the classes `reveal`, `wipe` (photos) and `draw` (line drawings) in `src/input.css`. All motion is switched off for visitors with reduced motion set.
 - No before/after slider, testimonials or FAQ on this site (see notes below).
 
 ## Going live — checklist

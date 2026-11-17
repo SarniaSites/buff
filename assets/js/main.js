@@ -36,14 +36,31 @@
   onScroll();
 
   /* ── Reveal on scroll ─────────────────────────────────── */
-  var revealEls = $$('.reveal, [data-tips]');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  requestAnimationFrame(function () { document.documentElement.classList.add('is-loaded'); });
+
+  // looping SVG (SMIL) animations: hold on a finished frame when motion is reduced
+  if (reduce) $$('[data-smil]').forEach(function (svg) { if (svg.pauseAnimations) { svg.setCurrentTime(5); svg.pauseAnimations(); } });
+
+  var revealEls = $$('.reveal, .wipe, .reveal-draw, [data-shelf], [data-reveal-draw]');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
+        if (en.isIntersecting) {
+          if (en.target._wipes) en.target._wipes.forEach(function (w) { w.classList.add('is-in'); });
+          else en.target.classList.add('is-in');
+          io.unobserve(en.target);
+        }
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-    revealEls.forEach(function (el) { io.observe(el); });
+    revealEls.forEach(function (el) {
+      // clipped-away elements never "intersect", so watch the parent for them
+      if (el.classList.contains('wipe')) {
+        var parent = el.parentElement;
+        if (!parent._wipes) { parent._wipes = []; io.observe(parent); }
+        parent._wipes.push(el);
+      } else io.observe(el);
+    });
   } else {
     revealEls.forEach(function (el) { el.classList.add('is-in'); });
   }
@@ -89,15 +106,24 @@
     a.addEventListener('click', function () { if (serviceSelect) serviceSelect.value = a.getAttribute('data-service'); });
   });
 
-  /* ── Colour picker ────────────────────────────────────── */
+  /* ── Colour picker – each nail gets a new coat, cuticle to tip ── */
   var swatches = $$('[data-swatches] .swatch');
-  var nails = $$('[data-pick]');
+  var bases = $$('[data-base]');
+  var coats = $$('[data-coat]');
   var shadeName = $('[data-shade-name]');
   swatches.forEach(function (sw) {
     sw.addEventListener('click', function () {
       swatches.forEach(function (s) { s.setAttribute('aria-pressed', String(s === sw)); });
       var c = sw.getAttribute('data-colour');
-      nails.forEach(function (n, i) { setTimeout(function () { n.setAttribute('fill', c); }, i * 70); });
+      coats.forEach(function (coat, i) {
+        setTimeout(function () {
+          coat.classList.toggle('is-painting', false);
+          void coat.getBoundingClientRect();
+          coat.setAttribute('fill', c);
+          coat.classList.add('is-painting');
+          setTimeout(function () { if (bases[i]) bases[i].setAttribute('fill', c); }, reduce ? 0 : 560);
+        }, reduce ? 0 : i * 90);
+      });
       if (shadeName) shadeName.textContent = sw.getAttribute('data-name');
     });
   });

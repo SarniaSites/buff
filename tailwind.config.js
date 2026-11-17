@@ -56,7 +56,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        display: ['"Bodoni Moda"', 'Didot', 'Georgia', 'serif'],
         sans: ['Jost', 'system-ui', '-apple-system', '"Segoe UI"', 'sans-serif'],
       },
       letterSpacing: {
