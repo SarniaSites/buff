@@ -25,12 +25,12 @@ _shots/                 screenshots for the team (not published)
 
 | Name | Hex | Used for |
 |---|---|---|
-| blush-200 | `#f2dcdf` | Logo background; arch behind hero photo, colour picker circle, theme colour |
+| blush-200 | `#f2dcdf` | Logo background; theme colour, booking section |
 | blush-50 / 100 | `#fcf7f7` / `#f8eced` | Page background, booking section |
 | gold-400 | `#c3a577` | Logo gold; hairline frames, sparkles |
 | gold-600 | `#96743f` | Gold text (darker so it stays readable) |
 | ink-900 | `#231d1b` | Body text, buttons, footer |
-| kraft-100 | `#f6efe6` | Colours section – picks up the kraft paper in the photos |
+| kraft-200/300 | `#ece0cf` / `#dccab0` | Divider lines and form underlines
 
 Fonts: **Bodoni Moda** (headings) and **Jost** (body – a geometric sans close to the logo lettering).
 Logo: the Facebook logo is a 2048px raster with a gold gradient; it has been **redrawn as a clean SVG** (same lettering, layout and frame, flat gold).
@@ -55,7 +55,6 @@ Logo: the Facebook logo is a 2048px raster with a gold gradient; it has been **r
 - [ ] Assumptions to check with Buff:
   - Treatment list (Manicures / French tips / Nail art) and the "what's included" points are inferred from their photos and bio. Do they also do pedicures, gel/BIAB, extensions or other beauty treatments (the logo says "Buff Beauty")? Add any to the explorer.
   - Opening hours aren't in the pack, so none are shown.
-  - The colour picker shades are taken from their photos, not their actual stock.
   - Only one written review in the pack, so no testimonials section (it names "Katie" – worth asking if she's the owner for an About line).
 - [ ] Left out of the site: the Easter greeting post, a COVID-19 notice graphic, the plants cover photo, review/follower counts and the £££ price band (kept only in JSON-LD as `priceRange`).
 - [ ] Optional: transfer the repo to the client's own GitHub if they want it
