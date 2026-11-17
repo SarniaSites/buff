@@ -106,28 +106,6 @@
     a.addEventListener('click', function () { if (serviceSelect) serviceSelect.value = a.getAttribute('data-service'); });
   });
 
-  /* ── Colour picker – each nail gets a new coat, cuticle to tip ── */
-  var swatches = $$('[data-swatches] .swatch');
-  var bases = $$('[data-base]');
-  var coats = $$('[data-coat]');
-  var shadeName = $('[data-shade-name]');
-  swatches.forEach(function (sw) {
-    sw.addEventListener('click', function () {
-      swatches.forEach(function (s) { s.setAttribute('aria-pressed', String(s === sw)); });
-      var c = sw.getAttribute('data-colour');
-      coats.forEach(function (coat, i) {
-        setTimeout(function () {
-          coat.classList.toggle('is-painting', false);
-          void coat.getBoundingClientRect();
-          coat.setAttribute('fill', c);
-          coat.classList.add('is-painting');
-          setTimeout(function () { if (bases[i]) bases[i].setAttribute('fill', c); }, reduce ? 0 : 560);
-        }, reduce ? 0 : i * 90);
-      });
-      if (shadeName) shadeName.textContent = sw.getAttribute('data-name');
-    });
-  });
-
   /* ── Lightbox ─────────────────────────────────────────── */
   var lb = $('[data-lightbox]');
   var items = $$('[data-gallery] [data-full]');
