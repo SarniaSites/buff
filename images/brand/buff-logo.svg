@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1820 1025" role="img" aria-label="Buff Beauty">
+  <title>Buff Beauty</title>
+  <g fill="none" stroke="#b38f55" stroke-linecap="square" stroke-linejoin="miter">
+    <rect x="9" y="9" width="1802" height="1007" stroke-width="18"/>
+    <g stroke-width="17">
+      <path d="M205 235H298a80 80 0 0 1 0 160H205ZM205 395H312a95 95 0 0 1 0 190H205Z"/>
+      <path d="M617 235V478a107 107 0 0 0 214 0V235"/>
+      <path d="M1235 235H1065V585M1065 405H1215"/>
+      <path d="M1612 235H1442V585M1442 405H1592"/>
+    </g>
+    <g stroke-width="8">
+      <path d="M502 735H524a12.5 12.5 0 0 1 0 25H502ZM502 760H527a15 15 0 0 1 0 30H502Z"/>
+      <path d="M692 735H652V790H692M652 762H686"/>
+      <path d="M797 790L835 735 873 790M810 772H860"/>
+      <path d="M945 735V767a20 20 0 0 0 40 0V735"/>
+      <path d="M1080 735H1136M1108 735V790"/>
+      <path d="M1236 735L1278 768 1320 735M1278 768V790"/>
+    </g>
+  </g>
+</svg>

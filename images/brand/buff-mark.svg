@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Buff">
+  <rect width="512" height="512" rx="96" fill="#f2dcdf"/>
+  <rect x="96" y="96" width="320" height="320" fill="none" stroke="#a9874e" stroke-width="14"/>
+  <path d="M206 168H262a46 46 0 0 1 0 92H206ZM206 260H270a56 56 0 0 1 0 112H206Z" fill="none" stroke="#a9874e" stroke-width="16"/>
+</svg>
